@@ -7,8 +7,10 @@ import UIElements from "./views/UIElements.vue";
 import Login from "./views/Login.vue";
 import Modal from "./views/Modal.vue";
 import Card from "./views/Card.vue";
-import Blank from "./views/Blank.vue";
+import Sales from"./views/Sales.vue"
+
 import NotFound from "./views/NotFound.vue";
+import ActivitiesForm from "./views/ActivitiesForm.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -17,10 +19,17 @@ const routes: RouteRecordRaw[] = [
     component: Login,
     meta: { layout: "empty" },
   },
+ 
   {
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+  },
+   
+  {
+    path: "/sales",
+    name: "Sales",
+    component: Sales,
   },
   {
     path: "/forms",
@@ -48,9 +57,9 @@ const routes: RouteRecordRaw[] = [
     component: Modal,
   },
   {
-    path: "/blank",
-    name: "Blank",
-    component: Blank,
+    path: "/activitiesForm",
+    name: "ActivitiesForm",
+    component: ActivitiesForm,
   },
 ];
 

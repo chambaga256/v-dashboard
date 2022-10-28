@@ -14,6 +14,7 @@ export interface IPaginatedTableData {
   statusColor: string;
 }
 
+
 export interface IWideTableData {
   name: string;
   email: string;

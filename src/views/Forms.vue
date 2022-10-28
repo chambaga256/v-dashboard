@@ -16,11 +16,11 @@
           <form @submit.prevent="register">
             <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
-                <label class="text-gray-700" for="username">Collected Eggs</label>
+                <label class="text-gray-700" for="username">Number Of  Trays Collected</label>
                 <input
                   class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
                   type="number"
-                  v-model="user.username"
+                  v-model="user.collected_eggs"
                 />
               </div>
 
@@ -31,29 +31,71 @@
                 <input
                   class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
                   type="number"
-                  v-model="user.email"
+                  v-model="user.dead_birds"
                 />
               </div>
 
               <div>
-                <label class="text-gray-700" for="password">Sold Eggs</label>
+                <label class="text-gray-700" for="password">Sold Trays</label>
                 <input
                   class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
                   type="number"
-                  v-model="user.password"
+                  v-model="user.sold_eggs"
                 />
               </div>
 
               <div>
                 <label class="text-gray-700" for="passwordConfirmation"
-                  >closed Day Eggs</label
+                  >Cost Of Each</label
+                >
+                <input
+                  class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                  type="text"
+                  v-model="user.cost_each"
+                />
+              </div>
+              <div>
+                <label class="text-gray-700" for="passwordConfirmation"
+                  >Damage Eggs</label
                 >
                 <input
                   class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
                   type="number"
-                  v-model="user.confirm"
+                  v-model="user.demage_eggs"
                 />
               </div>
+              <div>
+                <label class="text-gray-700" for="passwordConfirmation"
+                  >Extra  Eggs</label
+                >
+                <input
+                  class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                  type="number"
+                  v-model="user.extra_eggs"
+                />
+              </div>
+              <div>
+                <label class="text-gray-700" for="passwordConfirmation"
+                  >Closed Trays </label
+                >
+                <input
+                  class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                  type="number"
+                  v-model="user.closed_eggs"
+                />
+              </div>
+
+              <div>
+                <label class="text-gray-700" for="passwordConfirmation"
+                  >Date </label
+                >
+                <input
+                  class="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                  type="date"
+                  v-model="user.date"
+                />
+              </div>
+
             </div>
 
             <div class="flex justify-end mt-4">
@@ -70,25 +112,44 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { defineComponent, ref } from "vue";
+<script  lang="ts">
+import { defineComponent, ref,reactive } from "vue";
 
-interface User {
-  username: string;
-  email: string;
-  password: string;
-  confirm: string;
-}
 
-const user = ref<User>({
-  username: "",
-  email: "",
-  password: "",
-  confirm: "",
+export default{
+  setup(){
+    const user = reactive({
+  collected_eggs: "",
+  dead_birds: "",
+  sold_eggs: "",
+  cost_each: "",
+  demage_eggs:"",
+  extra_eggs:"",
+  date:"",
+  closed_eggs:""
 });
 
 const register = () => {
-  const data = JSON.parse(JSON.stringify(user.value));
-  console.log("Registered: ", data);
+  
+  localStorage.setItem('entered',JSON.stringify(user))
+ user. collected_eggs= "",
+ user. dead_birds= "",
+ user.sold_eggs ="",
+  user.cost_each = "",
+  user. demage_eggs ="",
+  user.extra_eggs ="",
+  user.date="",
+  user.closed_eggs=""
+
 };
+
+return{
+  user,register
+}
+
+  }
+
+
+
+}
 </script>
