@@ -8,7 +8,7 @@ import Login from "./views/Login.vue";
 import Modal from "./views/Modal.vue";
 import Card from "./views/Card.vue";
 import Sales from"./views/Sales.vue"
-
+import Register from'./views/Register.vue'
 import NotFound from "./views/NotFound.vue";
 import ActivitiesForm from "./views/ActivitiesForm.vue";
 
@@ -24,6 +24,14 @@ const routes: RouteRecordRaw[] = [
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+    
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+    meta: { layout: "empty" }, 
+    
   },
    
   {
@@ -55,6 +63,7 @@ const routes: RouteRecordRaw[] = [
     path: "/modal",
     name: "Modal",
     component: Modal,
+    
   },
   {
     path: "/activitiesForm",

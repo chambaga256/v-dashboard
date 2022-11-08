@@ -114,6 +114,7 @@
 
 <script  lang="ts">
 import { defineComponent, ref,reactive } from "vue";
+import axios from 'axios';
 
 
 export default{
@@ -130,7 +131,8 @@ export default{
 });
 
 const register = () => {
-  
+  axios.post('http://localhost:8000/record',user).then(res=>console.log(res.data));
+
   localStorage.setItem('entered',JSON.stringify(user))
  user. collected_eggs= "",
  user. dead_birds= "",

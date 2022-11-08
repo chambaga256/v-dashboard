@@ -62,7 +62,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody v-for="activity in activities">
                 <tr>
                   <td
                     class="px-5 py-5 text-sm bg-white border-b border-gray-200"
@@ -72,7 +72,7 @@
 
                       <div class="ml-3">
                         <p class="text-gray-900 whitespace-nowrap">
-                          {{ activities.brought_in}}
+                          {{activity.brought_in}}
  
                         </p>
                       </div>
@@ -87,21 +87,15 @@
                     class="px-5 py-5 text-sm bg-white border-b border-gray-200"
                   >
                     <p class="text-gray-900 whitespace-nowrap">
-                      {{activities.quantity}}
+                      {{activity.quantity}}
                     </p>
                   </td>
                   <td
                     class="px-5 py-5 text-sm bg-white border-b border-gray-200"
                   >
-                    <span
-                      :class="`relative inline-block px-3 py-1 font-semibold  leading-tight`"
-                    >
-                      <span
-                        aria-hidden
-                        :class="`absolute inset-0  opacity-50 rounded-full`"
-                      ></span>
-                      <span class="relative">{{activities.date}}</span>
-                    </span>
+                    <p class="text-black whitespace-nowrap">
+                      {{activity.date}}
+                    </p>
                   </td>
                 </tr>
               </tbody>
@@ -162,8 +156,8 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
+              <tbody v-for="result in results" >
+                <tr >
                   <td
                     class="px-2 py-5 text-sm bg-white border-b border-gray-200"
                   >
@@ -172,7 +166,7 @@
 
                       <div class="ml-2">
                         <p class="text-gray-900 whitespace-nowrap">
-                          {{ records.sold_eggs}}
+                          {{result.collected_eggs}}
  
                         </p>
                       </div>
@@ -180,24 +174,24 @@
                   </td>
                   <td
                     class="px-3 py-5 text-sm bg-white border-b border-gray-200"
-                  > {{records.collected_eggs}}
+                  > {{result.collected_eggs}}
                     
                   </td>
                   <td
                     class="px-3 py-5 text-sm bg-white border-b border-gray-200"
                   >
                     <p class="text-gray-900 whitespace-nowrap">
-                      {{records.demage_eggs}}
+                      {{result.demage_eggs}}
                     </p>
                   </td>
                   <td
                     class="px-3 py-5 text-sm bg-white border-b border-gray-200"
                   >
                     <p class="text-gray-900 whitespace-nowrap">
-                      {{records.extra_eggs}}
+                      {{result.extra_eggs}}
                     </p>
                   </td>
-                  <td
+                  <td 
                     class="px-3 py-5 text-sm bg-white border-b border-gray-200"
                   >
                     <span
@@ -207,7 +201,7 @@
                         aria-hidden
                         :class="`absolute inset-0  opacity-50 rounded-full`"
                       ></span>
-                      <span class="relative">{{records.date}}</span>
+                      <span class="relative" >{{result.date}}</span>
                     </span>
                   </td>
                 </tr>
@@ -234,7 +228,115 @@
               </div>
             </div>
           </div>
-        </div>
+        </div >
+         <div class="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
+          <div
+            class="inline-block min-w-full overflow-hidden rounded-lg shadow"
+          >
+            <table class="min-w-full leading-normal">
+              <thead>
+                <tr>
+                  <th
+                    class="px-3 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200"
+                  >
+                    Trays Sold
+                  </th>
+                  <th
+                    class="px-3 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200"
+                  >
+                    Collected Trays
+                  </th>
+                  <th
+                    class="px-3 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200"
+                  >
+                    Damaged Eggs
+                  </th>
+                  <th
+                    class="px-3 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200"
+                  >
+                     extra eggs
+                  </th>
+                  <th
+                    class="px-3 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200"
+                  >
+                    Date
+                  </th>
+                </tr>
+              </thead>
+              <tbody v-for="result in results" >
+                <tr >
+                  <td
+                    class="px-2 py-5 text-sm bg-white border-b border-gray-200"
+                  >
+                    <div class="flex items-center">
+                      
+
+                      <div class="ml-2">
+                        <p class="text-gray-900 whitespace-nowrap">
+                          {{result.collected_eggs}}
+ 
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="px-3 py-5 text-sm bg-white border-b border-gray-200"
+                  > {{result.collected_eggs}}
+                    
+                  </td>
+                  <td
+                    class="px-3 py-5 text-sm bg-white border-b border-gray-200"
+                  >
+                    <p class="text-gray-900 whitespace-nowrap">
+                      {{result.demage_eggs}}
+                    </p>
+                  </td>
+                  <td
+                    class="px-3 py-5 text-sm bg-white border-b border-gray-200"
+                  >
+                    <p class="text-gray-900 whitespace-nowrap">
+                      {{result.extra_eggs}}
+                    </p>
+                  </td>
+                  <td 
+                    class="px-3 py-5 text-sm bg-white border-b border-gray-200"
+                  >
+                    <span
+                      :class="`relative inline-block px-3 py-1 font-semibold  leading-tight`"
+                    >
+                      <span
+                        aria-hidden
+                        :class="`absolute inset-0  opacity-50 rounded-full`"
+                      ></span>
+                      <span class="relative" >{{result.date}}</span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              class="flex flex-col items-center px-5 py-5 bg-white border-t xs:flex-row xs:justify-between"
+            >
+              <span class="text-xs text-gray-900 xs:text-sm"
+                >Showing 1 to 4 of 50 Entries</span
+              >
+
+              <div class="inline-flex mt-2 xs:mt-0">
+                <button
+                  class="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400"
+                >
+                  Prev
+                </button>
+                <button
+                  class="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r hover:bg-gray-400"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div >
+     
       </div>
     
 
@@ -243,19 +345,34 @@
 </template>
 
 <script >
-
+ import  axios from 'axios'
  export default{
    setup(){
+    const results =null;
+    const activities =null;
+    // const activity = localStorage.getItem('actvity')
+    // const activities = JSON.parse(activity) 
 
-    const activity = localStorage.getItem('actvity')
-    const activities = JSON.parse(activity) 
-
-    const record = localStorage.getItem('entered')
-    const records  = JSON.parse(record )
+    // const record = localStorage.getItem('entered')
+    // const records  = JSON.parse(record )
     return{
-      activities, records
+      activities,results
 
     }
-   }
+    
+   },
+   mounted() {
+      axios.get('http://localhost:8000/dashboard').then(response => {
+          this.results = response.data
+      })
+      
+},
+data(){
+  axios.get('http://localhost:8000/activity').then(response => {
+          this.activities = response.data
+      })
+}
  }
 </script>
+
+ 

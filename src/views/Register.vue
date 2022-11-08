@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="flex items-center justify-center h-screen px-6 bg-gray-200">
     <div class="w-full max-w-sm p-6 bg-white rounded-md shadow-md">
@@ -24,7 +26,7 @@
         <span class="text-2xl font-semibold text-gray-700">V-Chicken System</span>
       </div>
 
-      <form class="mt-4" @submit.prevent="login">
+      <form class="mt-4" @submit.prevent="register">
         <label class="block">
           <span class="text-sm text-gray-700">Email</span>
           <input
@@ -50,12 +52,11 @@
               <span class="mx-2 text-sm text-gray-600">Remember me</span>
             </label>
           </div>
-
           <div>
             <a
               class="block text-sm text-indigo-700 fontme hover:underline"
               href="#"
-              >Forgot your password?</a
+              >Aleady have Account </a
             >
           </div>
         </div>
@@ -65,21 +66,24 @@
             type="submit"
             class="w-full px-4 py-2 text-sm text-center text-white bg-indigo-600 rounded-md focus:outline-none hover:bg-indigo-500"
           >
-            Sign in
+            Register
           </button>
+          
         </div>
+
         <div>
             <a
-              class=" ml-[200px] block text-sm text-indigo-700 fontme hover:underline" 
-              href="/register"
-              >I Dont Account Sign Up?</a
+              class="block text-sm text-indigo-700 fontme hover:underline  items-center justify-between mt-4"
+              href="#"
+              >Aleady have Account </a
             >
           </div>
+
+           
       </form>
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -88,10 +92,7 @@ const router = useRouter();
 const email = ref("");
 const password = ref("");
 
-function login() {
-  router.push("/dashboard");
-}
-function register(){
-  router.push("/register")
+function register() {
+  router.push("/login");
 }
 </script>

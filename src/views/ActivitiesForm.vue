@@ -75,7 +75,7 @@
 
 <script  lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-
+import axios from 'axios'
 export default{
   setup(){
     const user = reactive({
@@ -88,6 +88,8 @@ export default{
 
 
 const register = () => {
+
+axios.post('http://localhost:8000/activities',user).then(res=>console.log(res.data));
 localStorage.setItem('actvity', JSON.stringify(user))
  user.brought_in=""
  user.cost=""

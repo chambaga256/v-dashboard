@@ -43,8 +43,8 @@
             </div>
 
             <div class="mx-5">
-              <h4 class="text-2xl font-semibold text-gray-700">{{records.collected_eggs}}</h4>
-              <div class="text-gray-500"> Collected Trays ({{records.date}})</div>
+              <h4 class="text-2xl font-semibold text-gray-700">{{}}</h4>
+              <div class="text-gray-500"> Collected Trays ({{}})</div>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@
             
 
             <div class="mx-5">
-              <h4 class="text-2xl font-semibold text-gray-700">{{records.sold_eggs }}</h4>
+              <h4 class="text-2xl font-semibold text-gray-700">{{}}</h4>
               <div class="text-gray-500"> Sold Trays</div>
             </div>
           </div>
@@ -111,7 +111,7 @@
             </div>
 
             <div class="mx-5">
-              <h4 class="text-2xl font-semibold text-gray-700">{{records.closed_eggs}}</h4>
+              <h4 class="text-2xl font-semibold text-gray-700">{{}}</h4>
               <div class="text-gray-500">closed Trays </div>
             </div>
              
@@ -146,12 +146,12 @@
               </svg>
             </div>
 
-            <div class="mx-5">
-              <h4 class="text-2xl font-semibold text-gray-700">{{records.extra_eggs}}</h4>
-              <div class="text-gray-500">Extra Eggs </div>
+            <div class="mx-5" >
+              <h4 class="text-2xl font-semibold text-gray-700" v-for="(result) in results" :key="result.id"> {{result.collected_eggs}}</h4>
+              <div class="text-gray-500" >extra eggs</div>
             </div>
              
-          
+           
           </div>
           
          
@@ -168,25 +168,71 @@
 </template>
 
 <script>
+ import axios from 'axios';
+ 
 
 export default {
-  setup(){
-    const record =localStorage.getItem('entered');
-    const records =JSON.parse(record)
+  // setup(){
+  // setup(){
+  //    info:null
+  //   const data=()=>{
+  //   axios.get('http://localhost:8000/dashboard').then(response=>(
+  //     this.info=response.data))
+  //  }
+  //   return
+  //   {
+  //     info
+  //   }
   
+
+  // }
+
+
+  data() {
+    const results=null;
+    return {
+        results
+    }
+},
+    mounted() {
+        axios.get('http://localhost:8000/dashboard').then(response => {
+            this.results = response.data
+        })
+  }, 
+//  data(){
+//   return{
+//     info:null
+//   }
+//  },
+
+//  mounted (){
+//   axios.get('http://localhost:8000/dashboard').then(response => (
+//            this.info= response.data)
+//   )
+//         }
+
+//  }
     
-          
-        
+    
  
-    return{
-      records 
+  //   return{
+  //     records:null
      
 
-    }
-  }
- }
-  
+  //   }
 
+  //   const records=""
+  //    const created=()=>{
+  //     axios.get('http://localhost:8000/dashboard').then(response => {
+  //         records= response.data
+  //       })
+    
+  //    }
+        // 
+//   }
+//  }
+  
+  }
   
   
 </script>
